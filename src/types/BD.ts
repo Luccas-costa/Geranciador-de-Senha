@@ -1,4 +1,6 @@
-export interface Image {
-  id: string;
-  urlimages: string;
+export interface Senha {
+  id: number;
+  origem: string;
+  email: string;
+  senha: string;
 }

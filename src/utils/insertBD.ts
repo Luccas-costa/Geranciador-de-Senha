@@ -2,18 +2,22 @@
 
 import { sql } from "@vercel/postgres";
 
-export async function insertImageURL({
+export async function insertSenhaBD({
   id,
-  urlimages,
+  origem,
+  email,
+  senha,
 }: {
-  id: string;
-  urlimages: string;
+  id: number;
+  origem: string;
+  email: string;
+  senha: string;
 }) {
   try {
-    console.log("Enviando URL da imagem para o banco de dados...");
-    await sql`INSERT INTO bdimages (id, urlimages) VALUES (${id}, ${urlimages})`;
-    console.log("Enviado com sucesso!");
+    console.log("Inserindo dados na tabela SenhasBD...");
+    await sql`INSERT INTO SenhasBD (id, Origem, email, senha) VALUES (${id}, ${origem}, ${email}, ${senha})`;
+    console.log("Dados inseridos com sucesso!");
   } catch (error) {
-    console.log("Erro ao enviar URL da imagem:", error);
+    console.log("Erro ao inserir dados na tabela SenhasBD:", error);
   }
 }
