@@ -14,7 +14,7 @@ export default function NavBar() {
   return (
     <div className='h-full w-[12%] flex justify-center items-center'>
       <div className='w-[60%] h-[90%] bg-[#7300FF]/45 border border-zinc-300/50 rounded-full py-14 px-4 shadow-2xl relative overflow-hidden'>
-        <div className='flex flex-col items-center space-y-6'>
+        <div className='flex flex-col items-center space-y-8'>
           <div
             onMouseEnter={() => setHoveredIcon("house")}
             onMouseLeave={() => setHoveredIcon(null)}
