@@ -17,6 +17,9 @@ export default function CardVSenhas() {
           email={"lucaspcosta70@gmail.com"}
           senha={"luquitas70"}
         />
+        <Details origem={"globoplay"} email={"1@gmail.com"} senha={"2"} />
+        <Details origem={"testetete"} email={"3@gmail.com"} senha={"4"} />
+        <Details origem={"4"} email={"5@gmail.com"} senha={"6"} />
         <div></div>
       </div>
     </div>

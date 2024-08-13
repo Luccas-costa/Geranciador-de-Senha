@@ -7,9 +7,15 @@ import {
   MagnifyingGlass,
   PlusCircle,
 } from "@phosphor-icons/react";
+import Spotylight from "./assets/Spotylight";
 
 export default function NavBar() {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>();
+  const [SpotlightAdd, setSpotlightAdd] = useState(false);
+
+  const handlerSoptlightAdd = () => {
+    setSpotlightAdd(!SpotlightAdd);
+  };
 
   return (
     <div className='h-full w-[12%] flex justify-center items-center'>
@@ -28,6 +34,7 @@ export default function NavBar() {
           <div
             onMouseEnter={() => setHoveredIcon("search")}
             onMouseLeave={() => setHoveredIcon(null)}
+            onClick={() => setSpotlightAdd(!SpotlightAdd)}
           >
             <MagnifyingGlass
               size={45}
@@ -63,6 +70,7 @@ export default function NavBar() {
           </div>
         </div>
       </div>
+      {SpotlightAdd && <Spotylight onClose={handlerSoptlightAdd} />}
     </div>
   );
 }
