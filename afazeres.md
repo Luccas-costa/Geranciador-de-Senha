@@ -1,0 +1,1 @@
+descobrir como mudar a velocidade do bd

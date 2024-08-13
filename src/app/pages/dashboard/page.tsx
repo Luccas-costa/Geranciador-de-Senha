@@ -2,6 +2,10 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+import BackgroundAnimeted from "@/components/ui/BackgroundAnimated";
+import NavBar from "@/components/NavBar";
+import Display from "@/components/Display";
+
 export default function Dashboard() {
   const router = useRouter();
 
@@ -15,8 +19,19 @@ export default function Dashboard() {
 
   return (
     <div>
-      {/* Conteúdo do dashboard */}
-      <h1>Bem-vindo ao Dashboard</h1>
+      <div style={{ zIndex: 1 }} className='h-screen w-screen overflow-hidden'>
+        <BackgroundAnimeted />
+      </div>
+
+      <div
+        style={{ zIndex: 3 }}
+        className='absolute inset-0 z-20 backdrop-blur-3xl bg-white/30 size-full'
+      >
+        <div className='size-full flex p-1 justify-between'>
+          <NavBar />
+          <Display />
+        </div>
+      </div>
     </div>
   );
 }
