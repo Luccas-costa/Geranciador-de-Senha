@@ -34,9 +34,6 @@ export default function SpotlightAdd({ onClose }: SpotlightAddProps) {
           placeholder='Qual senha quer achar?'
           className='bg-neutral-800/80 w-[700px] p-6 rounded-full shadow-2xl text-zinc-300'
         />
-        <div className='absolute top-[48.5%] right-[33%] cursor-pointer'>
-          <MagnifyingGlass size={30} color='white' />
-        </div>
       </div>
     </div>
   );
