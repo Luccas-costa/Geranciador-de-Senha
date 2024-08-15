@@ -43,9 +43,6 @@ export default function SpotlightAdd({
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // Aqui você pode manipular os valores dos inputs
-    console.log({ origem, email, senha });
-    // Limpar os campos após o envio, se necessário
     setOrigem("");
     setEmail("");
     setSenha("");
@@ -67,6 +64,7 @@ export default function SpotlightAdd({
             className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
             value={origem}
             onChange={(e) => setOrigem(e.target.value)}
+            autoFocus
           />
           <input
             type='text'

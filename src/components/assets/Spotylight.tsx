@@ -1,5 +1,8 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React, { useState, useEffect, useRef } from "react";
+import SearchSpotylight from "./SearchSpotylight";
+import { searchSenhasByOrigem } from "@/lib/dataSearch";
+import { Senha } from "@/types/BD";
 
 interface SpotlightProps {
   onClose: () => void;
@@ -7,6 +10,8 @@ interface SpotlightProps {
 
 export default function Spotlight({ onClose }: SpotlightProps) {
   const spotlightRef = useRef<HTMLDivElement>(null);
+  const [searchResults, setSearchResults] = useState<Senha[]>([]);
+  const [searchText, setSearchText] = useState<string>("");
 
   // Função para fechar o spotlight ao clicar fora
   const handleClickOutside = (event: MouseEvent) => {
@@ -26,16 +31,53 @@ export default function Spotlight({ onClose }: SpotlightProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      if (searchText) {
+        const results = await searchSenhasByOrigem(searchText);
+        setSearchResults(results);
+      } else {
+        setSearchResults([]);
+      }
+    };
+    fetchData();
+  }, [searchText]);
+
+  const getPosition = (index: number, length: number) => {
+    if (length === 1) return "sozinho";
+    if (index === 0) return "primeiro";
+    if (index === length - 1) return "ultimo";
+    return "meio";
+  };
+
   return (
     <div className='absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center z-50'>
-      <div ref={spotlightRef} className="relative">
+      <div
+        ref={spotlightRef}
+        className='relative flex flex-col space-y-4 transition-all duration-100'
+      >
         <input
           type='text'
           placeholder='Qual senha quer achar?'
           className='bg-neutral-800/80 w-[700px] p-6 rounded-full shadow-2xl text-zinc-300'
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          autoFocus
         />
-        <div className='absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer'>
+        <div className='absolute top-[20px] right-4 transform -translate-y-1/2 cursor-pointer'>
           <MagnifyingGlass size={30} color='white' />
+        </div>
+        {/* Parte das respostas */}
+        <div className='flex flex-col max-h-[449px] overflow-y-auto'>
+          {searchResults.map((senha, index) => (
+            <SearchSpotylight
+              key={index}
+              Posicao={getPosition(index, searchResults.length)}
+              origem={senha.origem}
+              email={senha.email}
+              senha={senha.senha}
+            />
+          ))}
         </div>
       </div>
     </div>

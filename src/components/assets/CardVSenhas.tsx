@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LockKey } from "@phosphor-icons/react/dist/ssr";
 import Details from "./Details";
-export default function CardVSenhas() {
+import { getSenhasList } from "@/lib/data";
+import styles from "@/style/loading.module.css";
+
+interface Senha {
+  id: number;
+  origem: string;
+  email: string;
+  senha: string;
+}
+
+interface CardVSenhasProps {
+  refresh: boolean;
+  refreshprops: boolean;
+}
+
+export default function CardVSenhas({
+  refresh,
+  refreshprops,
+}: CardVSenhasProps) {
+  const [senhas, setSenhas] = useState<Senha[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      setIsLoading(true); // Começa o carregamento
+      try {
+        const senhasData = await getSenhasList();
+        setSenhas(senhasData);
+      } catch (error) {
+        console.log("Erro ao buscar senhas:", error);
+      } finally {
+        setIsLoading(false); // Termina o carregamento
+      }
+    }
+    fetchData();
+  }, [refresh, refreshprops]);
+
   return (
     <div className='w-[650px] h-[350px] bg-[#7300FF]/45 border border-zinc-300/50 relative rounded-xl shadow-2xl'>
       <div
@@ -10,18 +46,31 @@ export default function CardVSenhas() {
       >
         <LockKey size={90} weight='regular' color='white' />
       </div>
-      <div className='mt-[75px]  w-full h-[78%] rounded-b-xl overflow-y-auto p-1 overflow-hidden'>
-        <hr className='border border-neutral-950/30 bg-neutral-950/30 w-[99%] mb-2 mt-1' />
-        <Details
-          origem={"globoplay"}
-          email={"lucaspcosta70@gmail.com"}
-          senha={"luquitas70"}
-        />
-        <Details origem={"globoplay"} email={"1@gmail.com"} senha={"2"} />
-        <Details origem={"testetete"} email={"3@gmail.com"} senha={"4"} />
-        <Details origem={"4"} email={"5@gmail.com"} senha={"6"} />
-        <div></div>
-      </div>
+      {isLoading ? (
+        <div className='w-full h-full flex items-center justify-center'>
+          <div className={`${styles.loader}`}>
+            <div className={`${styles.loadersquare}`}></div>
+            <div className={`${styles.loadersquare}`}></div>
+            <div className={`${styles.loadersquare}`}></div>
+            <div className={`${styles.loadersquare}`}></div>
+            <div className={`${styles.loadersquare}`}></div>
+            <div className={`${styles.loadersquare}`}></div>
+            <div className={`${styles.loadersquare}`}></div>
+          </div>
+        </div>
+      ) : (
+        <div className='mt-[75px] w-full h-[78%] rounded-b-xl overflow-y-auto p-1 overflow-hidden'>
+          <hr className='border border-neutral-950/30 bg-neutral-950/30 w-[99%] mb-2 mt-1' />
+          {senhas.map((senha) => (
+            <Details
+              key={senha.id}
+              origem={senha.origem}
+              email={senha.email}
+              senha={senha.senha}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

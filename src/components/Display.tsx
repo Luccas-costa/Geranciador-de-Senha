@@ -9,9 +9,14 @@ import SpotlightAdd from "./assets/SpotylightAdd";
 
 import { insertSenhaBD } from "@/utils/insertBD";
 
-export default function Display() {
+interface DisplayProps {
+  refreshprops: boolean;
+}
+
+export default function Display({ refreshprops }: DisplayProps) {
   const [Add, setAdd] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   const handlerSoptlightAdd = () => {
     setAdd(!Add);
@@ -29,12 +34,6 @@ export default function Display() {
   }) => {
     setIsLoading(true);
     const id = idAleatorio();
-    console.log({
-      id,
-      origem: data.origem,
-      email: data.email,
-      senha: data.senha,
-    });
     await insertSenhaBD({
       id: id,
       origem: data.origem,
@@ -44,6 +43,7 @@ export default function Display() {
     console.log("dados inseridos com sucesso");
     setIsLoading(false);
     setAdd(false);
+    setRefresh((prev) => !prev);
   };
 
   return (
@@ -59,7 +59,7 @@ export default function Display() {
           <CardASenhas handlerSoptlightAdd={handlerSoptlightAdd} />
         </div>
         <div className='w-full flex justify-evenly'>
-          <CardVSenhas />
+          <CardVSenhas refresh={refresh} refreshprops={refreshprops} />
           <CardUSenhas />
         </div>
       </div>

@@ -56,7 +56,7 @@ export default function Details({ origem, email, senha }: DetailsProps) {
       </div>
       <div className='flex w-full items-center overflow-hidden text-neutral-950/80 text-lg font-semibold'>
         <hr className='border border-neutral-950/30 bg-neutral-950/30 w-[10%] mr-2' />
-        {origem}
+        <span className='whitespace-nowrap'>{origem}</span>
         <hr className='border border-neutral-950/30 bg-neutral-950/30 w-[100%] ml-2' />
       </div>
     </div>
