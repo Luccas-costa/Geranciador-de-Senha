@@ -29,11 +29,25 @@ export default function SpotlightAdd({ onClose }: SpotlightAddProps) {
   return (
     <div className='absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center z-50'>
       <div ref={spotlightRef}>
-        <input
-          type='text'
-          placeholder='Qual senha quer achar?'
-          className='bg-neutral-800/80 w-[700px] p-6 rounded-full shadow-2xl text-zinc-300'
-        />
+        <form action="" className="flex flex-col space-y-3 items-center justify-center"> 
+          <div className='text-2xl font-semibold text-white'>Preencha os dados para adicionar uma nova senha</div>
+          <input
+            type='text'
+            placeholder='Nome da origem'
+            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+          />
+          <input
+            type='text'
+            placeholder='example@gmail.com'
+            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+          />
+          <input
+            type='text'
+            placeholder='Senha'
+            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+          />
+          <button type="submit" className="bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300">Adicionar Senha</button>
+        </form>
       </div>
     </div>
   );
