@@ -10,7 +10,7 @@ export default function CardVSenhas() {
       >
         <LockKey size={90} weight='regular' color='white' />
       </div>
-      <div className='mt-[75px]  w-full h-[79%] rounded-b-xl overflow-y-auto p-1 overflow-hidden'>
+      <div className='mt-[75px]  w-full h-[78%] rounded-b-xl overflow-y-auto p-1 overflow-hidden'>
         <hr className='border border-neutral-950/30 bg-neutral-950/30 w-[99%] mb-2 mt-1' />
         <Details
           origem={"globoplay"}
