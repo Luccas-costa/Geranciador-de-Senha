@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 interface SearchSpotylightUpdateProps {
   Posicao: string;
+  id: number;
   origem: string;
   handlerEscolha: (origem: string) => void;
 }
@@ -10,6 +11,7 @@ interface SearchSpotylightUpdateProps {
 export default function SearchSpotylightUpdate({
   Posicao,
   origem,
+  id,
   handlerEscolha,
 }: SearchSpotylightUpdateProps) {
   return (

@@ -7,9 +7,11 @@ import {
   House,
   MagnifyingGlass,
   PlusCircle,
+  Trash
 } from "@phosphor-icons/react";
 import Spotylight from "./assets/Spotylight";
 import SpotylightAdd from "./assets/SpotylightAdd";
+import SpotylightTrash from "./assets/SpotylightTrash";
 import SpotylightUpdate from "./assets/SpotylightUpdate";
 import { insertSenhaBD } from "@/utils/insertBD";
 
@@ -23,10 +25,16 @@ export default function NavBar({ handlerRefresh }: NavBarProps) {
   const [SpotlightAdd, setSpotlightAdd] = useState(false);
   const [SpotylightUpdate2, setSpotylightUpdate2] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [SpotylightTrash2, setSpotylightTrash2] = useState(false);
 
   const handlerSoptlightAdd = () => {
     setSpotlightAdd(!SpotlightAdd);
   };
+
+  const handlerSpotylightTrash = () => {
+    setSpotylightTrash2(!SpotylightTrash2);
+  };
+
 
   const handlerSoptlightUpdate = () => {
     setSpotylightUpdate2(false);
@@ -105,6 +113,19 @@ export default function NavBar({ handlerRefresh }: NavBarProps) {
           >
             <ArrowsClockwise size={45} weight='regular' color='white' />
           </div>
+          <div
+            className='hover:cursor-pointer'
+            onMouseEnter={() => setHoveredIcon("trash")}
+            onMouseLeave={() => setHoveredIcon(null)}
+            onClick={() => setSpotylightTrash2(!SpotylightTrash2)}
+          >
+            <Trash
+              size={45}
+              weight={hoveredIcon === "trash" ? "fill" : "regular"}
+              color='white'
+            />
+          </div>
+
 
           <div
             onMouseEnter={() => setHoveredIcon("gear")}
@@ -138,6 +159,7 @@ export default function NavBar({ handlerRefresh }: NavBarProps) {
           handlerRefresh={handlerRefresh}
         />
       )}
+      {SpotylightTrash2 && <SpotylightTrash onClose={handlerSpotylightTrash} handlerRefresh={handlerRefresh} />}
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import { sql } from "@vercel/postgres";
 
 // Função para apagar um registro da tabela bdimages com base no id
-export async function deleteImageById(id: string): Promise<void> {
+export async function deleteSenhaBD(id: number): Promise<void> {
   try {
     console.log(`Apagando imagem com id: ${id}`);
     // Executa a consulta SQL para deletar o registro correspondente ao id fornecido
