@@ -3,9 +3,10 @@ import React from "react";
 export default function BackgroundAnimated() {
   return (
     <>
-      <div id='bg-wrap'>
+      <div id='bg-wrap' className='fixed inset-0 w-full h-full overflow-hidden'>
         <svg viewBox='0 0 100 100' preserveAspectRatio='xMidYMid slice'>
           <defs>
+            {/* Gradients */}
             <radialGradient
               id='Gradient1'
               cx='50%'
@@ -16,12 +17,12 @@ export default function BackgroundAnimated() {
             >
               <animate
                 attributeName='fx'
-                dur='68s' // Originalmente 34s
+                dur='68s'
                 values='0%;3%;0%'
                 repeatCount='indefinite'
-              ></animate>
-              <stop offset='0%' stop-color='rgba(255, 0, 255, 1)'></stop>
-              <stop offset='100%' stop-color='rgba(255, 0, 255, 0)'></stop>
+              />
+              <stop offset='0%' stopColor='rgba(255, 0, 255, 1)' />
+              <stop offset='100%' stopColor='rgba(255, 0, 255, 0)' />
             </radialGradient>
             <radialGradient
               id='Gradient2'
@@ -33,12 +34,12 @@ export default function BackgroundAnimated() {
             >
               <animate
                 attributeName='fx'
-                dur='47s' // Originalmente 23.5s
+                dur='47s'
                 values='0%;3%;0%'
                 repeatCount='indefinite'
-              ></animate>
-              <stop offset='0%' stop-color='rgba(255, 255, 0, 1)'></stop>
-              <stop offset='100%' stop-color='rgba(255, 255, 0, 0)'></stop>
+              />
+              <stop offset='0%' stopColor='rgba(255, 255, 0, 1)' />
+              <stop offset='100%' stopColor='rgba(255, 255, 0, 0)' />
             </radialGradient>
             <radialGradient
               id='Gradient3'
@@ -50,12 +51,12 @@ export default function BackgroundAnimated() {
             >
               <animate
                 attributeName='fx'
-                dur='43s' // Originalmente 21.5s
+                dur='43s'
                 values='0%;3%;0%'
                 repeatCount='indefinite'
-              ></animate>
-              <stop offset='0%' stop-color='rgba(0, 255, 255, 1)'></stop>
-              <stop offset='100%' stop-color='rgba(0, 255, 255, 0)'></stop>
+              />
+              <stop offset='0%' stopColor='rgba(0, 255, 255, 1)' />
+              <stop offset='100%' stopColor='rgba(0, 255, 255, 0)' />
             </radialGradient>
             <radialGradient
               id='Gradient4'
@@ -67,12 +68,12 @@ export default function BackgroundAnimated() {
             >
               <animate
                 attributeName='fx'
-                dur='46s' // Originalmente 23s
+                dur='46s'
                 values='0%;5%;0%'
                 repeatCount='indefinite'
-              ></animate>
-              <stop offset='0%' stop-color='rgba(0, 255, 0, 1)'></stop>
-              <stop offset='100%' stop-color='rgba(0, 255, 0, 0)'></stop>
+              />
+              <stop offset='0%' stopColor='rgba(0, 255, 0, 1)' />
+              <stop offset='100%' stopColor='rgba(0, 255, 0, 0)' />
             </radialGradient>
             <radialGradient
               id='Gradient5'
@@ -84,12 +85,12 @@ export default function BackgroundAnimated() {
             >
               <animate
                 attributeName='fx'
-                dur='49s' // Originalmente 24.5s
+                dur='49s'
                 values='0%;5%;0%'
                 repeatCount='indefinite'
-              ></animate>
-              <stop offset='0%' stop-color='rgba(0,0,255, 1)'></stop>
-              <stop offset='100%' stop-color='rgba(0,0,255, 0)'></stop>
+              />
+              <stop offset='0%' stopColor='rgba(0,0,255, 1)' />
+              <stop offset='100%' stopColor='rgba(0,0,255, 0)' />
             </radialGradient>
             <radialGradient
               id='Gradient6'
@@ -101,14 +102,15 @@ export default function BackgroundAnimated() {
             >
               <animate
                 attributeName='fx'
-                dur='51s' // Originalmente 25.5s
+                dur='51s'
                 values='0%;5%;0%'
                 repeatCount='indefinite'
-              ></animate>
-              <stop offset='0%' stop-color='rgba(255,0,0, 1)'></stop>
-              <stop offset='100%' stop-color='rgba(255,0,0, 0)'></stop>
+              />
+              <stop offset='0%' stopColor='rgba(255,0,0, 1)' />
+              <stop offset='100%' stopColor='rgba(255,0,0, 0)' />
             </radialGradient>
           </defs>
+          {/* Rects */}
           <rect
             x='13.744%'
             y='1.18473%'
@@ -119,24 +121,24 @@ export default function BackgroundAnimated() {
           >
             <animate
               attributeName='x'
-              dur='40s' // Originalmente 20s
+              dur='40s'
               values='25%;0%;25%'
               repeatCount='indefinite'
-            ></animate>
+            />
             <animate
               attributeName='y'
-              dur='42s' // Originalmente 21s
+              dur='42s'
               values='0%;25%;0%'
               repeatCount='indefinite'
-            ></animate>
+            />
             <animateTransform
               attributeName='transform'
               type='rotate'
               from='0 50 50'
               to='360 50 50'
-              dur='14s' // Originalmente 7s
+              dur='14s'
               repeatCount='indefinite'
-            ></animateTransform>
+            />
           </rect>
           <rect
             x='-2.17916%'
@@ -148,24 +150,24 @@ export default function BackgroundAnimated() {
           >
             <animate
               attributeName='x'
-              dur='46s' // Originalmente 23s
+              dur='46s'
               values='-25%;0%;-25%'
               repeatCount='indefinite'
-            ></animate>
+            />
             <animate
               attributeName='y'
-              dur='48s' // Originalmente 24s
+              dur='48s'
               values='0%;50%;0%'
               repeatCount='indefinite'
-            ></animate>
+            />
             <animateTransform
               attributeName='transform'
               type='rotate'
               from='0 50 50'
               to='360 50 50'
-              dur='24s' // Originalmente 12s
+              dur='24s'
               repeatCount='indefinite'
-            ></animateTransform>
+            />
           </rect>
           <rect
             x='9.00483%'
@@ -177,24 +179,24 @@ export default function BackgroundAnimated() {
           >
             <animate
               attributeName='x'
-              dur='50s' // Originalmente 25s
+              dur='50s'
               values='0%;25%;0%'
               repeatCount='indefinite'
-            ></animate>
+            />
             <animate
               attributeName='y'
-              dur='24s' // Originalmente 12s
+              dur='24s'
               values='0%;25%;0%'
               repeatCount='indefinite'
-            ></animate>
+            />
             <animateTransform
               attributeName='transform'
               type='rotate'
               from='360 50 50'
               to='0 50 50'
-              dur='18s' // Originalmente 9s
+              dur='18s'
               repeatCount='indefinite'
-            ></animateTransform>
+            />
           </rect>
         </svg>
       </div>

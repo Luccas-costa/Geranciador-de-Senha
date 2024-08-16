@@ -29,16 +29,16 @@ export default function Dashboard() {
   };
 
   return (
-    <div>
-      <div style={{ zIndex: 1 }} className='h-screen w-screen overflow-hidden'>
+    <div className='relative w-full min-h-screen'>
+      <div className='absolute inset-0 z-1 w-full h-full'>
         <BackgroundAnimeted />
       </div>
 
       <div
-        style={{ zIndex: 3 }}
-        className='absolute inset-0 z-20 backdrop-blur-3xl bg-white/30 size-full'
+        style={{ zIndex: 3, height: "max-content" }}
+        className='absolute inset-0 z-20 backdrop-blur-3xl bg-white/30 w-full '
       >
-        <div className='size-full flex p-1 justify-between'>
+        <div className='w-full h-screen flex p-1 justify-between'>
           <NavBar handlerRefresh={handlerrefresh} />
           <Display refreshprops={Refresh} />
         </div>

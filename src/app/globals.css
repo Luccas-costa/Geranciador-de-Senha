@@ -10,3 +10,8 @@
   ::-webkit-scrollbar-thumb {
     background-color: #a1a1a19c;
   }
+
+  html, body {
+    overflow-x: hidden !important;
+    scroll-behavior: smooth;
+  }

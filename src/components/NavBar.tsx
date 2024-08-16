@@ -1,31 +1,34 @@
-import React, { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import Imagem from "../../public/fotoperfil.jpg";
+import React, { useState } from "react";
+
 import {
   ArrowsClockwise,
   Gear,
   House,
   MagnifyingGlass,
   PlusCircle,
-  Trash
+  Trash,
 } from "@phosphor-icons/react";
+
 import Spotylight from "./assets/Spotylight";
+import Imagem from "../../public/fotoperfil.jpg";
+import { insertSenhaBD } from "@/utils/insertBD";
 import SpotylightAdd from "./assets/SpotylightAdd";
 import SpotylightTrash from "./assets/SpotylightTrash";
 import SpotylightUpdate from "./assets/SpotylightUpdate";
-import { insertSenhaBD } from "@/utils/insertBD";
 
 interface NavBarProps {
   handlerRefresh: (estado: boolean) => void;
 }
 
 export default function NavBar({ handlerRefresh }: NavBarProps) {
-  const [hoveredIcon, setHoveredIcon] = useState<string | null>();
   const [Spotlight, setSpotlight] = useState(false);
-  const [SpotlightAdd, setSpotlightAdd] = useState(false);
-  const [SpotylightUpdate2, setSpotylightUpdate2] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [SpotlightAdd, setSpotlightAdd] = useState(false);
+  const [hoveredIcon, setHoveredIcon] = useState<string | null>();
   const [SpotylightTrash2, setSpotylightTrash2] = useState(false);
+  const [SpotylightUpdate2, setSpotylightUpdate2] = useState(false);
 
   const handlerSoptlightAdd = () => {
     setSpotlightAdd(!SpotlightAdd);
@@ -34,7 +37,6 @@ export default function NavBar({ handlerRefresh }: NavBarProps) {
   const handlerSpotylightTrash = () => {
     setSpotylightTrash2(!SpotylightTrash2);
   };
-
 
   const handlerSoptlightUpdate = () => {
     setSpotylightUpdate2(false);
@@ -72,17 +74,19 @@ export default function NavBar({ handlerRefresh }: NavBarProps) {
     <div className='h-full w-[12%] flex justify-center items-center'>
       <div className='w-[60%] h-[90%] bg-[#7300FF]/45 border border-zinc-300/50 rounded-full py-14 px-4 shadow-2xl relative overflow-hidden'>
         <div className='flex flex-col items-center space-y-8'>
-          <div
-            className='hover:cursor-pointer'
-            onMouseEnter={() => setHoveredIcon("house")}
-            onMouseLeave={() => setHoveredIcon(null)}
-          >
-            <House
-              size={45}
-              weight={hoveredIcon === "house" ? "fill" : "regular"}
-              color='white'
-            />
-          </div>
+          <Link href='/pages/dashboard/fullview'>
+            <div
+              className='hover:cursor-pointer'
+              onMouseEnter={() => setHoveredIcon("house")}
+              onMouseLeave={() => setHoveredIcon(null)}
+            >
+              <House
+                size={45}
+                weight={hoveredIcon === "house" ? "fill" : "regular"}
+                color='white'
+              />
+            </div>
+          </Link>
           <div
             className='hover:cursor-pointer'
             onMouseEnter={() => setHoveredIcon("search")}
@@ -126,7 +130,6 @@ export default function NavBar({ handlerRefresh }: NavBarProps) {
             />
           </div>
 
-
           <div
             onMouseEnter={() => setHoveredIcon("gear")}
             onMouseLeave={() => setHoveredIcon(null)}
@@ -159,7 +162,12 @@ export default function NavBar({ handlerRefresh }: NavBarProps) {
           handlerRefresh={handlerRefresh}
         />
       )}
-      {SpotylightTrash2 && <SpotylightTrash onClose={handlerSpotylightTrash} handlerRefresh={handlerRefresh} />}
+      {SpotylightTrash2 && (
+        <SpotylightTrash
+          onClose={handlerSpotylightTrash}
+          handlerRefresh={handlerRefresh}
+        />
+      )}
     </div>
   );
 }
