@@ -22,6 +22,9 @@ export default function Dashboard() {
   const handlerrefresh = (
     estado: boolean | ((prevState: boolean) => boolean)
   ) => {
+    if (Refresh === false) {
+      setRefresh(true);
+    }
     setRefresh(estado);
   };
 
