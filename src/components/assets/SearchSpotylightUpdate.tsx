@@ -3,9 +3,9 @@ import React, { useState } from "react";
 
 interface SearchSpotylightUpdateProps {
   Posicao: string;
-  id: number;
+  id?: number;
   origem: string;
-  handlerTeste: (id: number) => void;
+  handlerTeste?: (id: number) => void;
   handlerEscolha: (origem: string) => void;
 }
 
@@ -17,9 +17,11 @@ export default function SearchSpotylightUpdate({
   handlerEscolha,
 }: SearchSpotylightUpdateProps) {
   const handlerSla = () => {
-    handlerTeste(id);
+    if (handlerTeste && id) {
+      handlerTeste(id);
+    }
     handlerEscolha(origem);
-  }
+  };
   return (
     <div
       onClick={handlerSla}
