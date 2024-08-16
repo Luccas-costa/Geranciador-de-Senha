@@ -24,7 +24,7 @@ export default function SpotylightTrash({
   const [chosenSenha, setChosenSenha] = useState<Senha | null>(null);
   const [teste, setTeste] = useState<boolean>(true);
   const [IsLoading, setIsLoading] = useState(false);
-  const [Teste2, setTeste2] = useState<number>();
+  const [Teste2, setTeste2] = useState<number | undefined>();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (

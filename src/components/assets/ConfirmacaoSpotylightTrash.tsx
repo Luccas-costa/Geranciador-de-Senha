@@ -5,7 +5,7 @@ import { searchSenhasByOrigem } from "@/lib/dataSearch";
 import { Senha } from "@/types/BD";
 
 interface ConfirmacaoSpotylightTrashProps {
-  id: number;
+  id: number | undefined;
   isLoading: boolean;
   onClose: () => void;
   handlerDeleteBD: (id: number) => void;
