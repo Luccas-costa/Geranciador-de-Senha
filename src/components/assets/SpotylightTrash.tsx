@@ -86,7 +86,7 @@ export default function SpotylightTrash({
           <>
             <input
               type='text'
-              placeholder='Qual senha você deseja apagar?'
+              placeholder='Qual senha você deseja Apagar?'
               className='bg-neutral-800/80 w-[700px] p-6 rounded-full shadow-2xl text-zinc-300'
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
