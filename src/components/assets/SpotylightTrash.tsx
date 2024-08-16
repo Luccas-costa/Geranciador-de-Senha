@@ -24,6 +24,7 @@ export default function SpotylightTrash({
   const [chosenSenha, setChosenSenha] = useState<Senha | null>(null);
   const [teste, setTeste] = useState<boolean>(true);
   const [IsLoading, setIsLoading] = useState(false);
+  const [Teste2, setTeste2] = useState<number>();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -76,6 +77,10 @@ export default function SpotylightTrash({
     onClose();
   };
 
+  const handlerTeste = (id: number) => {
+    setTeste2(id);
+  };
+
   return (
     <div className='absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center z-50'>
       <div
@@ -99,7 +104,7 @@ export default function SpotylightTrash({
         )}
         <div className='flex flex-col max-h-[321px] overflow-y-auto'>
           {chosenSenha ? (
-            <ConfirmacaoSpotylightTrash onClose={onClose} handlerDeleteBD={handlerDeleteBD} id={chosenSenha.id} isLoading={IsLoading}/>      
+            <ConfirmacaoSpotylightTrash onClose={onClose} handlerDeleteBD={handlerDeleteBD} id={Teste2}  isLoading={IsLoading}/>      
           ) : (
             <>
               {searchResults.map((senha, index) => (
@@ -108,6 +113,7 @@ export default function SpotylightTrash({
                   Posicao={getPosition(index, searchResults.length)}
                   origem={senha.origem}
                   id={senha.id}
+                  handlerTeste={handlerTeste}
                   handlerEscolha={() => handlerEscolha(senha)}
                 />
               ))}

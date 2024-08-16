@@ -5,6 +5,7 @@ interface SearchSpotylightUpdateProps {
   Posicao: string;
   id: number;
   origem: string;
+  handlerTeste: (id: number) => void;
   handlerEscolha: (origem: string) => void;
 }
 
@@ -12,11 +13,16 @@ export default function SearchSpotylightUpdate({
   Posicao,
   origem,
   id,
+  handlerTeste,
   handlerEscolha,
 }: SearchSpotylightUpdateProps) {
+  const handlerSla = () => {
+    handlerTeste(id);
+    handlerEscolha(origem);
+  }
   return (
     <div
-      onClick={() => handlerEscolha(origem)}
+      onClick={handlerSla}
       className={`bg-neutral-800/80 hover:bg-neutral-900/80 w-[700px] p-6 shadow-2xl text-zinc-300 
         ${Posicao === "sozinho" && "rounded-2xl"}
         ${Posicao === "primeiro" && "rounded-t-2xl border-b border-zinc-300/50"}
