@@ -5,7 +5,13 @@ import Link from "next/link";
 import Imagem from "../../public/fotoperfil.jpg";
 import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 
-export default function FullViewNavBar() {
+interface FullViewNavBarProps {
+  setSearchQuery: (query: string) => void;
+}
+
+export default function FullViewNavBar({
+  setSearchQuery,
+}: FullViewNavBarProps) {
   return (
     <div className='h-[70px] w-full flex items-center justify-between border-b border-zinc-400/70 shadow-lg'>
       <div className='p-2 flex items-center space-x-2'>
@@ -18,7 +24,9 @@ export default function FullViewNavBar() {
           />
         </div>
         <div className={`text-xl text-black/70 font-bold ${styles.navItem}`}>
-          <Link href='/pages/dashboard'>Voltar ao Dashboard</Link>
+          <Link href='/pages/dashboard' className='flex items-center'>
+            <span className='text-2xl'>{"<-"}</span> Voltar ao Dashboard
+          </Link>
         </div>
       </div>
       <div className='flex mr-3 space-x-4 items-center'>
@@ -26,6 +34,7 @@ export default function FullViewNavBar() {
           <input
             type='text'
             placeholder='Pesquisar Senhas...'
+            onChange={(e) => setSearchQuery(e.target.value)}
             className='text-black placeholder:text-black/70 placeholder:font-semibold border border-zinc-300/50 rounded-xl px-2 py-[6px] bg-black/20 w-[300px]'
           />
           <div className='absolute top-[18px] right-2 transform -translate-y-1/2 cursor-pointer'>

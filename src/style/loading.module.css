@@ -139,3 +139,52 @@
    .loadersquare:nth-of-type(7) {
     animation-delay: -10s;
    }
+
+   /* cor 2 */
+
+   .loadersquare2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    margin: 2px;
+    border-radius: 0px;
+    background: #444444;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: square-animation 10s ease-in-out infinite both;
+   }
+   
+   .loadersquare2:nth-of-type(0) {
+    animation-delay: 0s;
+   }
+   
+   .loadersquare2:nth-of-type(1) {
+    animation-delay: -1.4285714286s;
+   }
+   
+   .loadersquare2:nth-of-type(2) {
+    animation-delay: -2.8571428571s;
+   }
+   
+   .loadersquare2:nth-of-type(3) {
+    animation-delay: -4.2857142857s;
+   }
+   
+   .loadersquare2:nth-of-type(4) {
+    animation-delay: -5.7142857143s;
+   }
+   
+   .loadersquare2:nth-of-type(5) {
+    animation-delay: -7.1428571429s;
+   }
+   
+   .loadersquare2:nth-of-type(6) {
+    animation-delay: -8.5714285714s;
+   }
+   
+   .loadersquare2:nth-of-type(7) {
+    animation-delay: -10s;
+   }
