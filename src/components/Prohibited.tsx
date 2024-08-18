@@ -1,20 +1,26 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Squares from "./ui/Squares";
 
 export default function Prohibited() {
   const [inputPIN, setInputPIN] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch("/pages/dashboard");
+  }, [router]);
 
   const handlePIN = () => {
     const correctPIN = "1029"; // Defina o PIN correto aqui
 
     if (inputPIN === correctPIN) {
       setError(null); // Limpa qualquer erro anterior
+      setLoading(true); // Ativa o estado de carregamento
       localStorage.setItem("isAuthenticated", "true"); // Armazena o estado de autenticação
-      router.push("/pages/dashboard"); // Redireciona para /dashboard
+      router.replace("/pages/dashboard"); // Redireciona para /dashboard
     } else {
       setError("PIN incorreto. Tente novamente."); // Exibe mensagem de erro
     }
@@ -36,7 +42,7 @@ export default function Prohibited() {
         <div className='flex flex-col justify-center items-center w-full'>
           {error && <div className='text-red-500 mt-2'>{error}</div>}
           <input
-            type='text'
+            type='tel'
             value={inputPIN}
             onChange={(e) => setInputPIN(e.target.value)}
             placeholder='PIN'
@@ -45,6 +51,7 @@ export default function Prohibited() {
             } rounded-lg focus:outline-none ${
               error ? "focus:border-red-600" : "focus:border-[#7300FF]"
             } text-white`}
+            disabled={loading} // Desativa o input enquanto carrega
           />
         </div>
         <button
@@ -53,8 +60,9 @@ export default function Prohibited() {
           className={`text-white font-bold mx-auto w-[calc(100%-1rem)] p-3 rounded-lg ${
             error ? "bg-red-600" : "bg-[#7300FF]"
           } `}
+          disabled={loading} // Desativa o botão enquanto carrega
         >
-          Enviar
+          {loading ? "Carregando..." : "Enviar"}
         </button>
       </div>
     </div>
