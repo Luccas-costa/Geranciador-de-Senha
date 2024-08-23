@@ -24,7 +24,7 @@ export default function FullViewNavBar({
           />
         </div>
         <div className={`text-xl text-black/70 font-bold ${styles.navItem}`}>
-          <Link href='/pages/dashboard' className='flex items-center'>
+          <Link href='/dashboard' className='flex items-center'>
             <span className='text-2xl'>{"<-"}</span> Voltar ao Dashboard
           </Link>
         </div>

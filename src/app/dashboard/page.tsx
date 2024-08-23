@@ -5,8 +5,10 @@ import { useRouter } from "next/navigation";
 import BackgroundAnimeted from "@/components/ui/BackgroundAnimated";
 import NavBar2 from "@/components/NavBar2";
 import NavBar3 from "@/components/NavBar3";
+import Display2 from "@/components/Display2";
 
 export default function Dashboard() {
+  const [Refresh, setRefresh] = useState<boolean>(false);
   const [NavbarResponsive, setNavbarResponsive] = useState<boolean>(false);
   const router = useRouter();
 
@@ -29,6 +31,7 @@ export default function Dashboard() {
   }, []);
 
   return (
+    
     <div>
       <div
         style={{ zIndex: 1 }}
@@ -41,8 +44,8 @@ export default function Dashboard() {
         className='absolute inset-0 z-20 backdrop-blur-3xl bg-white/30 size-full'
       >
         <div className='h-full w-full flex screen14:flex-row-reverse flex-col'>
-          <div className='flex-1'>teste</div>
-          <div>
+          <div className='flex-1'><Display2 refreshprops={Refresh}/></div>
+          <div style={{ zIndex: 4 }}>
             {NavbarResponsive ? (
               <NavBar2 />
             ) : (

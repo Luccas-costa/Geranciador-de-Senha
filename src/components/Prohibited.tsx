@@ -10,7 +10,7 @@ export default function Prohibited() {
   const router = useRouter();
 
   useEffect(() => {
-    router.prefetch("/pages/dashboard");
+    router.prefetch("/dashboard");
   }, [router]);
 
   const handlePIN = () => {
