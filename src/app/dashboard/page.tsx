@@ -30,8 +30,16 @@ export default function Dashboard() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handlerrefresh = (
+    estado: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    if (Refresh === false) {
+      setRefresh(true);
+    }
+    setRefresh(estado);
+  };
+
   return (
-    
     <div>
       <div
         style={{ zIndex: 1 }}
@@ -47,7 +55,7 @@ export default function Dashboard() {
           <div className='flex-1'><Display2 refreshprops={Refresh}/></div>
           <div style={{ zIndex: 4 }}>
             {NavbarResponsive ? (
-              <NavBar2 />
+              <NavBar2 handlerRefresh={handlerrefresh} />
             ) : (
               <div className='fixed top-0 left-0 h-full'>
                 <NavBar3 />
