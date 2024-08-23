@@ -38,7 +38,9 @@ export default function Prohibited() {
         />
       </div>
       <div className='flex flex-col space-y-2' style={{ zIndex: 1 }}>
-        <div className='text-white text-8xl font-bold mb-7'>VaultKey</div>
+        <div className='text-white screen16:text-8xl text-7xl font-bold screen16:mb-7 mb-2'>
+          VaultKey
+        </div>
         <div className='flex flex-col justify-center items-center w-full'>
           {error && <div className='text-red-500 mt-2'>{error}</div>}
           <input
