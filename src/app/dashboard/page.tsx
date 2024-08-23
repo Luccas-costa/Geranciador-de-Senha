@@ -47,7 +47,7 @@ export default function Dashboard() {
               <NavBar2 />
             ) : (
               <div className='fixed top-0 left-0 h-full'>
-                <NavBar3 />{" "}
+                <NavBar3 />
               </div>
             )}
           </div>
