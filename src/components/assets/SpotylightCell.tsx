@@ -1,14 +1,16 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React, { useState, useEffect, useRef } from "react";
-import SearchSpotylight from "./SearchSpotylight";
+import SearchSpotylight from "./SearchSpotylightPc";
 import { searchSenhasByOrigem } from "@/lib/dataSearch";
 import { Senha } from "@/types/BD";
+import SearchSpotylight2 from "./SearchSpotylightCell";
+import SearchSpotylightCell from "./SearchSpotylightCell";
 
-interface SpotlightProps {
+interface SpotlightCellProps {
   onClose: () => void;
 }
 
-export default function Spotlight({ onClose }: SpotlightProps) {
+export default function SpotlightCell({ onClose }: SpotlightCellProps) {
   const spotlightRef = useRef<HTMLDivElement>(null);
   const [searchResults, setSearchResults] = useState<Senha[]>([]);
   const [searchText, setSearchText] = useState<string>("");
@@ -59,18 +61,18 @@ export default function Spotlight({ onClose }: SpotlightProps) {
         <input
           type='text'
           placeholder='Qual senha quer achar?'
-          className='bg-neutral-800/80 w-[700px] p-6 rounded-full shadow-2xl text-zinc-300'
+          className='bg-zinc-200/80 w-[80vw] p-6 rounded-full shadow-2xl text-neutral-800 placeholder:text-neutral-800'
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           autoFocus
         />
         <div className='absolute top-[20px] right-4 transform -translate-y-1/2 cursor-pointer'>
-          <MagnifyingGlass size={30} color='white' />
+          <MagnifyingGlass size={30} color='#404040' />
         </div>
         {/* Parte das respostas */}
         <div className='flex flex-col max-h-[449px] overflow-y-auto'>
           {searchResults.map((senha, index) => (
-            <SearchSpotylight
+            <SearchSpotylightCell
               key={index}
               Posicao={getPosition(index, searchResults.length)}
               origem={senha.origem}

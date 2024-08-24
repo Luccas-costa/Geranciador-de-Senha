@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { PlusCircle, ShieldPlus } from "@phosphor-icons/react/dist/ssr";
 
-interface CardASenhasProps {
+interface CardASenhasPcProps {
   handlerSoptlightAdd: () => void;
 }
-export default function CardASenhas({ handlerSoptlightAdd }: CardASenhasProps) {
+export default function CardASenhasPc({
+  handlerSoptlightAdd,
+}: CardASenhasPcProps) {
   return (
     <>
       <div

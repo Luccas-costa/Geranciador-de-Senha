@@ -1,9 +1,9 @@
-'use client';
-import { Archive, ArrowUp } from '@phosphor-icons/react';
-import React, { useEffect, useState } from 'react';
-import { getSenhasList } from '@/lib/data';
+"use client";
+import { Archive, ArrowUp } from "@phosphor-icons/react";
+import React, { useEffect, useState } from "react";
+import { getSenhasList } from "@/lib/data";
 
-export default function CardNSenhas2() {
+export default function CardNSenhasCell() {
   const [numSenhas, setNumSenhas] = useState<number>(0);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function CardNSenhas2() {
   }, []);
 
   return (
-    <div className='w-[90vw] h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'>
+    <div className='w-[calc(45vw-150px)] h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'>
       <div
         className='size-[120px] bg-zinc-200/60 border border-neutrals-300/50 rounded-full shadow-2xl absolute -top-[19%] left-1/2 translate-x-[-50%] flex items-center justify-center group-hover:bg-zinc-200 transition-all duration-300'
         style={{ zIndex: 2 }}

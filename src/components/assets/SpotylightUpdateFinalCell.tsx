@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-interface SpotylightUpdateFinalProps {
+interface SpotylightUpdateFinalCellProps {
   id: number;
   origem: string;
   email: string;
@@ -14,14 +14,14 @@ interface SpotylightUpdateFinalProps {
   }) => void;
 }
 
-export default function SpotylightUpdateFinal({
+export default function SpotylightUpdateFinalCell({
   origem,
   email,
   senha,
   IsLoading,
   id,
   handlerUpdateBD,
-}: SpotylightUpdateFinalProps) {
+}: SpotylightUpdateFinalCellProps) {
   const [Origem, setOrigem] = useState<string>(origem);
   const [Email, setEmail] = useState<string>(email);
   const [Senha, setSenha] = useState<string>(senha);
@@ -35,20 +35,20 @@ export default function SpotylightUpdateFinal({
           </div>
           <input
             type='text'
-            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+            className='bg-zinc-200/80 w-[80vw] p-6 rounded-xl shadow-2xl text-neutral-900 placeholder:text-neutral-900'
             value={Origem}
             onChange={(e) => setOrigem(e.target.value)}
             autoFocus
           />
           <input
             type='text'
-            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+            className='bg-zinc-200/80 w-[80vw] p-6 rounded-xl shadow-2xl text-neutral-900 placeholder:text-neutral-900'
             value={Email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type='text'
-            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+            className='bg-zinc-200/80 w-[80vw] p-6 rounded-xl shadow-2xl text-neutral-900 placeholder:text-neutral-900'
             value={Senha}
             onChange={(e) => setSenha(e.target.value)}
           />
@@ -63,7 +63,7 @@ export default function SpotylightUpdateFinal({
                 senha: Senha,
               });
             }}
-            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+            className='bg-zinc-200/80 w-[80vw] p-6 rounded-xl shadow-2xl text-neutral-900 placeholder:text-neutral-900'
           >
             {IsLoading ? "Alterando..." : "Alterar"}
           </button>

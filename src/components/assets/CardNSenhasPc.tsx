@@ -2,7 +2,7 @@ import { ArrowUp } from "@phosphor-icons/react";
 import { ArrowRight, Archive } from "@phosphor-icons/react/dist/ssr";
 import React from "react";
 
-export default function CardNSenhas() {
+export default function CardNSenhasPc() {
   return (
     <div className='w-[650px] h-[350px] bg-[#7300FF]/45 border border-zinc-300/50 relative rounded-xl shadow-2xl'>
       <div

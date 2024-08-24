@@ -11,15 +11,15 @@ interface Senha {
   senha: string;
 }
 
-interface CardVSenhasProps {
+interface CardVSenhasPcProps {
   refresh: boolean;
   refreshprops: boolean;
 }
 
-export default function CardVSenhas2({
+export default function CardVSenhasPc({
   refresh,
   refreshprops,
-}: CardVSenhasProps) {
+}: CardVSenhasPcProps) {
   const [senhas, setSenhas] = useState<Senha[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -39,14 +39,14 @@ export default function CardVSenhas2({
   }, [refresh, refreshprops]);
 
   return (
-    <div className='w-[90vw] h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'>
-        <div
-          className='size-[120px] bg-zinc-200/60 border border-neutrals-300/50 rounded-full shadow-2xl absolute -top-[19%] left-1/2 translate-x-[-50%] flex items-center justify-center group-hover:bg-zinc-200 transition-all duration-300'
-          style={{ zIndex: 2 }}
-        >
-          <LockKey size={90} color='#404040' weight='regular' />
-        </div>
-        {isLoading ? (
+    <div className='w-[650px] h-[350px] bg-[#7300FF]/45 border border-zinc-300/50 relative rounded-xl shadow-2xl'>
+      <div
+        className='size-[140px] bg-[#7300FF]/45 border border-zinc-300/50 rounded-full shadow-2xl absolute -top-[19%] left-1/2 translate-x-[-50%] flex items-center justify-center'
+        style={{ zIndex: 2 }}
+      >
+        <LockKey size={90} weight='regular' color='white' />
+      </div>
+      {isLoading ? (
         <div className='w-full h-full flex items-center justify-center'>
           <div className={`${styles.loader}`}>
             <div className={`${styles.loadersquare}`}></div>
@@ -72,5 +72,5 @@ export default function CardVSenhas2({
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -1,22 +1,22 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React, { useState, useEffect, useRef } from "react";
-import SearchSpotylight from "./SearchSpotylight";
+import SearchSpotylight from "./SearchSpotylightPc";
 import { searchSenhasByOrigem } from "@/lib/dataSearch";
 import { Senha } from "@/types/BD";
 
-interface ConfirmacaoSpotylightTrashProps {
+interface ConfirmacaoSpotylightTrashPcProps {
   id: number | undefined;
   isLoading: boolean;
   onClose: () => void;
   handlerDeleteBD: (id: number) => void;
 }
 
-export default function ConfirmacaoSpotylightTrash({
+export default function ConfirmacaoSpotylightTrashPc({
   onClose,
   handlerDeleteBD,
   id,
   isLoading,
-}: ConfirmacaoSpotylightTrashProps) {
+}: ConfirmacaoSpotylightTrashPcProps) {
   return (
     <div className='absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center z-50'>
       <div className='relative flex flex-col space-y-4 transition-all duration-100'>

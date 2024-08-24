@@ -20,7 +20,7 @@ export default function Prohibited() {
       setError(null); // Limpa qualquer erro anterior
       setLoading(true); // Ativa o estado de carregamento
       localStorage.setItem("isAuthenticated", "true"); // Armazena o estado de autenticação
-      router.replace("/pages/dashboard"); // Redireciona para /dashboard
+      router.replace("/dashboard"); // Redireciona para /dashboard
     } else {
       setError("PIN incorreto. Tente novamente."); // Exibe mensagem de erro
     }

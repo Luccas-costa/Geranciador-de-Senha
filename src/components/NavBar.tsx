@@ -11,12 +11,12 @@ import {
   Trash,
 } from "@phosphor-icons/react";
 
-import Spotylight from "./assets/Spotylight";
+import Spotylight from "./assets/SpotylightPc";
 import Imagem from "../../public/fotoperfil.jpg";
 import { insertSenhaBD } from "@/utils/insertBD";
-import SpotylightAdd from "./assets/SpotylightAdd";
-import SpotylightTrash from "./assets/SpotylightTrash";
-import SpotylightUpdate from "./assets/SpotylightUpdate";
+import SpotylightAdd from "./assets/SpotylightAddPc";
+import SpotylightTrash from "./assets/SpotylightTrashPc";
+import SpotylightUpdate from "./assets/SpotylightUpdatePc";
 
 interface NavBarProps {
   handlerRefresh: (estado: boolean) => void;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
-interface SpotlightAddProps {
+interface SpotlightAddCellProps {
   onClose: () => void;
   handlerInsertBD: (data: {
     origem: string;
@@ -11,11 +11,11 @@ interface SpotlightAddProps {
   isLoading: boolean;
 }
 
-export default function SpotlightAdd({
+export default function SpotlightAddCell({
   onClose,
   isLoading,
   handlerInsertBD,
-}: SpotlightAddProps) {
+}: SpotlightAddCellProps) {
   const spotlightRef = useRef<HTMLDivElement>(null);
 
   // Estados para os valores dos inputs
@@ -55,13 +55,13 @@ export default function SpotlightAdd({
           onSubmit={handleSubmit}
           className='flex flex-col space-y-3 items-center justify-center'
         >
-          <div className='text-2xl font-semibold text-white'>
+          <div className='text-2xl font-semibold text-white text-center w-[calc(80vw-300px)]'>
             Preencha os dados para adicionar uma nova senha
           </div>
           <input
             type='text'
             placeholder='Nome da origem'
-            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+            className='bg-zinc-200/60 w-[calc(80vw-300px)] p-6 rounded-xl shadow-2xl text-neutral-900 placeholder:text-neutral-900'
             value={origem}
             onChange={(e) => setOrigem(e.target.value)}
             autoFocus
@@ -69,21 +69,21 @@ export default function SpotlightAdd({
           <input
             type='text'
             placeholder='example@gmail.com'
-            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+            className='bg-zinc-200/60 w-[calc(80vw-300px)] p-6 rounded-xl shadow-2xl text-neutral-900 placeholder:text-neutral-900'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type='text'
             placeholder='Senha'
-            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+            className='bg-zinc-200/60 w-[calc(80vw-300px)] p-6 rounded-xl shadow-2xl text-neutral-900 placeholder:text-neutral-900'
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
           <button
             type='submit'
             onClick={() => handlerInsertBD({ origem, email, senha })}
-            className='bg-neutral-800/80 w-[700px] p-6 rounded-xl shadow-2xl text-zinc-300'
+            className='bg-zinc-200/60 w-[calc(80vw-300px)] p-6 rounded-xl shadow-2xl text-neutral-900 placeholder:text-neutral-900'
           >
             {isLoading ? "Adicionando..." : "Adicionar Senha"}
           </button>

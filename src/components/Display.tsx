@@ -5,7 +5,7 @@ import CardNSenhas from "./assets/CardNSenhas";
 import CardASenhas from "./assets/CardASenhas";
 import CardVSenhas from "./assets/CardVSenhas";
 import CardUSenhas from "./assets/CardUSenhas";
-import SpotlightAdd from "./assets/SpotylightAdd";
+import SpotlightAdd from "./assets/SpotylightAddPc";
 
 import { insertSenhaBD } from "@/utils/insertBD";
 

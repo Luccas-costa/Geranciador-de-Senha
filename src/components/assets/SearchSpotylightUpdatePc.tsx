@@ -1,7 +1,7 @@
 import { LockKey, LockKeyOpen } from "@phosphor-icons/react/dist/ssr";
 import React, { useState } from "react";
 
-interface SearchSpotylightUpdateProps {
+interface SearchSpotylightUpdatePcProps {
   Posicao: string;
   id?: number;
   origem: string;
@@ -9,13 +9,13 @@ interface SearchSpotylightUpdateProps {
   handlerEscolha: (origem: string) => void;
 }
 
-export default function SearchSpotylightUpdate({
+export default function SearchSpotylightUpdatePc({
   Posicao,
   origem,
   id,
   handlerTeste,
   handlerEscolha,
-}: SearchSpotylightUpdateProps) {
+}: SearchSpotylightUpdatePcProps) {
   const handlerSla = () => {
     if (handlerTeste && id) {
       handlerTeste(id);
@@ -25,10 +25,13 @@ export default function SearchSpotylightUpdate({
   return (
     <div
       onClick={handlerSla}
-      className={`bg-neutral-800/80 hover:bg-neutral-900/80 w-[700px] p-6 shadow-2xl text-zinc-300 
+      className={`bg-zinc-200/80 hover:bg-zinc-300/80 w-[700px] p-6 shadow-2xl text-neutral-900 
         ${Posicao === "sozinho" && "rounded-2xl"}
-        ${Posicao === "primeiro" && "rounded-t-2xl border-b border-zinc-300/50"}
-        ${Posicao === "meio" && "rounded-none border-b border-zinc-300/50"}
+        ${
+          Posicao === "primeiro" &&
+          "rounded-t-2xl border-b border-neutral-700/50"
+        }
+        ${Posicao === "meio" && "rounded-none border-b border-neutral-700/50"}
         ${Posicao === "ultimo" && "rounded-b-2xl"}
         `}
     >

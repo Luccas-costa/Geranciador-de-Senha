@@ -1,27 +1,30 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React, { useState, useEffect, useRef } from "react";
-import SearchSpotylight from "./SearchSpotylight";
+import SearchSpotylight from "./SearchSpotylightPc";
 import { searchSenhasByOrigem } from "@/lib/dataSearch";
 import { Senha } from "@/types/BD";
-import SearchSpotylightUpdate from "./SearchSpotylightUpdate";
-import SpotylightUpdateFinal from "./SpotylightUpdateFinal";
+import SearchSpotylightUpdate from "./SearchSpotylightUpdatePc";
 import { updateSenhaBD } from "@/utils/updateBD";
+import { deleteSenhaBD } from "@/utils/deleteBD";
+import ConfirmacaoSpotylightTrashPc from "./ConfirmacaoSpotylightTrashPc";
+import SearchSpotylightUpdatePc from "./SearchSpotylightUpdatePc";
 
-interface SpotlightUpdateProps {
+interface SpotylightTrashPcProps {
   onClose: () => void;
   handlerRefresh: (estado: boolean) => void;
 }
 
-export default function SpotlightUpdate({
+export default function SpotylightTrashPc({
   onClose,
   handlerRefresh,
-}: SpotlightUpdateProps) {
+}: SpotylightTrashPcProps) {
   const spotlightRef = useRef<HTMLDivElement>(null);
   const [searchResults, setSearchResults] = useState<Senha[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [chosenSenha, setChosenSenha] = useState<Senha | null>(null);
   const [teste, setTeste] = useState<boolean>(true);
   const [IsLoading, setIsLoading] = useState(false);
+  const [Teste2, setTeste2] = useState<number | undefined>();
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -64,19 +67,18 @@ export default function SpotlightUpdate({
     setTeste(false);
   };
 
-  const handlerUpdateBD = async (data: {
-    id: number;
-    origem: string;
-    email: string;
-    senha: string;
-  }) => {
+  const handlerDeleteBD = async (id: number) => {
     setIsLoading(true);
-    await updateSenhaBD(data);
+    await deleteSenhaBD(id);
     setIsLoading(false);
     setChosenSenha(null);
     setTeste(true);
     handlerRefresh(true);
     onClose();
+  };
+
+  const handlerTeste = (id: number) => {
+    setTeste2(id);
   };
 
   return (
@@ -89,8 +91,8 @@ export default function SpotlightUpdate({
           <>
             <input
               type='text'
-              placeholder='Qual senha você deseja atualizar?'
-              className='bg-neutral-800/80 w-[700px] p-6 rounded-full shadow-2xl text-zinc-300'
+              placeholder='Qual senha você deseja Apagar?'
+              className='bg-zinc-200/80 w-[700px] p-6 rounded-full shadow-2xl text-neutral-900 placeholder:text-neutral-900'
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               autoFocus
@@ -102,21 +104,21 @@ export default function SpotlightUpdate({
         )}
         <div className='flex flex-col max-h-[321px] overflow-y-auto'>
           {chosenSenha ? (
-            <SpotylightUpdateFinal
-              handlerUpdateBD={handlerUpdateBD}
-              id={chosenSenha.id}
-              origem={chosenSenha.origem}
-              email={chosenSenha.email}
-              senha={chosenSenha.senha}
-              IsLoading={IsLoading}
+            <ConfirmacaoSpotylightTrashPc
+              onClose={onClose}
+              handlerDeleteBD={handlerDeleteBD}
+              id={Teste2}
+              isLoading={IsLoading}
             />
           ) : (
             <>
               {searchResults.map((senha, index) => (
-                <SearchSpotylightUpdate
+                <SearchSpotylightUpdatePc
                   key={index}
                   Posicao={getPosition(index, searchResults.length)}
                   origem={senha.origem}
+                  id={senha.id}
+                  handlerTeste={handlerTeste}
                   handlerEscolha={() => handlerEscolha(senha)}
                 />
               ))}

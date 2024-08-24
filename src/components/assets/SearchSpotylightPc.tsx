@@ -1,19 +1,19 @@
 import { LockKey, LockKeyOpen } from "@phosphor-icons/react/dist/ssr";
 import React, { useState } from "react";
 
-interface SearchSpotylight2Props {
+interface SearchSpotylightPcProps {
   Posicao: string;
   origem: string;
   email: string;
   senha: string;
 }
 
-export default function SearchSpotylight2({
+export default function SearchSpotylightPc({
   Posicao,
   origem,
   email,
   senha,
-}: SearchSpotylight2Props) {
+}: SearchSpotylightPcProps) {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const obfuscateText = (text: string) => "*".repeat(text.length);
@@ -32,10 +32,13 @@ export default function SearchSpotylight2({
 
   return (
     <div
-      className={`bg-zinc-200/80 hover:bg-zinc-300/80 w-[80vw] p-6 shadow-2xl text-neutral-800 
+      className={`bg-zinc-200/80 hover:bg-zinc-300/80 w-[700px] p-6 shadow-2xl text-neutral-900 
         ${Posicao === "sozinho" && "rounded-2xl"}
-        ${Posicao === "primeiro" && "rounded-t-2xl border-b border-zinc-300/50"}
-        ${Posicao === "meio" && "rounded-none border-b border-zinc-300/50"}
+        ${
+          Posicao === "primeiro" &&
+          "rounded-t-2xl border-b border-neutral-700/50"
+        }
+        ${Posicao === "meio" && "rounded-none border-b border-neutral-700/50"}
         ${Posicao === "ultimo" && "rounded-b-2xl"}
         `}
     >

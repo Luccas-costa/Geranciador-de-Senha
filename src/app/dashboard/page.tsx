@@ -3,13 +3,17 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import BackgroundAnimeted from "@/components/ui/BackgroundAnimated";
-import NavBar2 from "@/components/NavBar2";
-import NavBar3 from "@/components/NavBar3";
-import Display2 from "@/components/Display2";
+
+import Display2 from "@/components/DisplayCell";
+import NavBarPc from "@/components/NavBarPc";
+import NavBarCell from "@/components/NavBarCell";
+import DisplayCell from "@/components/DisplayCell";
+import DisplayPc from "@/components/DisplayPc";
 
 export default function Dashboard() {
   const [Refresh, setRefresh] = useState<boolean>(false);
-  const [NavbarResponsive, setNavbarResponsive] = useState<boolean>(false);
+  const [VisiblePc, setVisiblePc] = useState<boolean>(false);
+  const [NavBarResponsive, setNavBarResponsive] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -22,7 +26,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const handleResize = () => {
-      setNavbarResponsive(window.innerWidth < 600 ? true : false);
+      setNavBarResponsive(window.innerWidth < 600 ? true : false);
     };
 
     handleResize();
@@ -39,6 +43,10 @@ export default function Dashboard() {
     setRefresh(estado);
   };
 
+  const handlerVisiblePc = () => {
+    setVisiblePc(!VisiblePc);
+  };
+
   return (
     <div>
       <div
@@ -52,13 +60,24 @@ export default function Dashboard() {
         className='absolute inset-0 z-20 backdrop-blur-3xl bg-white/30 size-full'
       >
         <div className='h-full w-full flex screen14:flex-row-reverse flex-col'>
-          <div className='flex-1'><Display2 refreshprops={Refresh}/></div>
+          <div className='flex-1'>
+            {NavBarResponsive ? (
+              <DisplayCell refreshprops={Refresh} />
+            ) : (
+              <div className='absolute left-[300px] top-0'>
+                {VisiblePc && <DisplayPc refreshprops={Refresh} />}
+              </div>
+            )}
+          </div>
           <div style={{ zIndex: 4 }}>
-            {NavbarResponsive ? (
-              <NavBar2 handlerRefresh={handlerrefresh} />
+            {NavBarResponsive ? (
+              <NavBarCell handlerRefresh={handlerrefresh} />
             ) : (
               <div className='fixed top-0 left-0 h-full'>
-                <NavBar3 />
+                <NavBarPc
+                  handlerRefresh={handlerrefresh}
+                  handlerVisiblePc={handlerVisiblePc}
+                />
               </div>
             )}
           </div>
