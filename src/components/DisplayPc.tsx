@@ -50,7 +50,7 @@ export default function DisplayPc({ refreshprops }: DisplayPcProps) {
       {!Add ? (
         <>
           <div className='mt-[90px] flex space-x-5'>
-            <CardNSenhasPC />
+            <CardNSenhasPC refresh={refresh} />
             <CardASenhasPC handlerSoptlightAdd={handlerSoptlightAdd} />
           </div>
           <div>

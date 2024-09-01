@@ -1,4 +1,9 @@
-import { AlignBottom } from "@phosphor-icons/react";
+import {
+  AlignBottom,
+  CameraPlus,
+  Slideshow,
+  FileJpg,
+} from "@phosphor-icons/react";
 import React from "react";
 
 export default function CardUSenhasCell() {
