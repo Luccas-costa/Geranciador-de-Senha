@@ -1,7 +1,7 @@
 import { AlignBottom } from "@phosphor-icons/react";
 import React from "react";
 
-export default function CardUSenhasCell() {
+export default function CardUSenhasPc() {
   return (
     <div className='w-[calc(90vw-300px)] h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'>
       <div

@@ -50,7 +50,7 @@ export default function DisplayCell({ refreshprops }: DisplayCellProps) {
       {!Add ? (
         <>
           <div className='mt-[90px]'>
-            <CardNSenhasCell />
+            <CardNSenhasCell refresh={refresh} />
           </div>
           <div>
             <CardASenhasCell handlerSoptlightAdd={handlerSoptlightAdd} />

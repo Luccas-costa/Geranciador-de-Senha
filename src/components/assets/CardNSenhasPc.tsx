@@ -3,7 +3,11 @@ import { Archive, ArrowUp } from "@phosphor-icons/react";
 import React, { useEffect, useState } from "react";
 import { getSenhasList } from "@/lib/data";
 
-export default function CardNSenhasCell() {
+interface CardNSenhasPcProps {
+  refresh: boolean;
+}
+
+export default function CardNSenhasPc({ refresh }: CardNSenhasPcProps) {
   const [numSenhas, setNumSenhas] = useState<number>(0);
 
   useEffect(() => {

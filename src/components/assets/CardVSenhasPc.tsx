@@ -11,15 +11,15 @@ interface Senha {
   senha: string;
 }
 
-interface CardVSenhasCellProps {
+interface CardVSenhasPcProps {
   refresh: boolean;
   refreshprops: boolean;
 }
 
-export default function CardVSenhasCell({
+export default function CardVSenhasPc({
   refresh,
   refreshprops,
-}: CardVSenhasCellProps) {
+}: CardVSenhasPcProps) {
   const [senhas, setSenhas] = useState<Senha[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 

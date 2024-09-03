@@ -1,13 +1,13 @@
 import { PlusCircle, ShieldPlus } from "@phosphor-icons/react";
 import React from "react";
 
-interface CardASenhasCellProps {
+interface CardASenhasPcProps {
   handlerSoptlightAdd: () => void;
 }
 
-export default function CardASenhasCell({
+export default function CardASenhasPc({
   handlerSoptlightAdd,
-}: CardASenhasCellProps) {
+}: CardASenhasPcProps) {
   return (
     <div
       className='w-[calc(45vw-150px)] cursor-pointer h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'
