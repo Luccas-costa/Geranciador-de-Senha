@@ -1,14 +1,9 @@
-import {
-  AlignBottom,
-  CameraPlus,
-  Slideshow,
-  FileJpg,
-} from "@phosphor-icons/react";
+import { AlignBottom } from "@phosphor-icons/react";
 import React from "react";
 
 export default function CardUSenhasCell() {
   return (
-    <div className='w-[calc(90vw-20px)] h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'>
+    <div className='w-[calc(90vw-300px)] h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'>
       <div
         className='size-[120px] bg-zinc-200/60 border border-neutrals-300/50 rounded-full shadow-2xl absolute -top-[19%] left-1/2 translate-x-[-50%] flex items-center justify-center group-hover:bg-zinc-200 transition-all duration-300'
         style={{ zIndex: 2 }}

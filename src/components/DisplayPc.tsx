@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 import { insertSenhaBD } from "@/utils/insertBD";
 
-import CardASenhasPC from "./assets/CardASenhasCell";
-import CardVSenhasPC from "./assets/CardVSenhasCell";
-import CardUSenhasPC from "./assets/CardUSenhasCell";
-import CardNSenhasPC from "./assets/CardNSenhasCell";
-import SpotlightAddPC from "./assets/SpotlightAddCell";
+import CardASenhasPC from "./assets/CardASenhasPc";
+import CardVSenhasPC from "./assets/CardVSenhasPc";
+import CardUSenhasPC from "./assets/CardUSenhasPc";
+import CardNSenhasPC from "./assets/CardNSenhasPc";
+import SpotlightAddPC from "./assets/SpotylightAddPc";
 
 interface DisplayPcProps {
   refreshprops: boolean;
@@ -44,6 +44,7 @@ export default function DisplayPc({ refreshprops }: DisplayPcProps) {
     setAdd(false);
     setRefresh((prev) => !prev);
   };
+  // so pra encher linguiça
 
   return (
     <div className='h-[100vh] w-[calc(100vw-300px)] flex flex-col items-center overflow-y-auto space-y-20 px-[20px]'>

@@ -10,7 +10,7 @@ export default function CardASenhasCell({
 }: CardASenhasCellProps) {
   return (
     <div
-      className='w-[calc(45vw-150px)] cursor-pointer h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'
+      className='w-[calc(90vw-20px)] cursor-pointer h-[350px] bg-zinc-200/60 border border-neutral-300/50 relative rounded-xl shadow-2xl transition-all duration-300 hover:bg-zinc-200 group'
       onClick={handlerSoptlightAdd}
     >
       <div
