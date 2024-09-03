@@ -44,6 +44,7 @@ export default function DisplayPc({ refreshprops }: DisplayPcProps) {
     setAdd(false);
     setRefresh((prev) => !prev);
   };
+  // so pra encher linguiça
 
   return (
     <div className='h-[100vh] w-[calc(100vw-300px)] flex flex-col items-center overflow-y-auto space-y-20 px-[20px]'>
