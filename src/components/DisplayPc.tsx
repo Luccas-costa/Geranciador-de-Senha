@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 import { insertSenhaBD } from "@/utils/insertBD";
 
-import CardASenhasPC from "./assets/CardASenhasCell";
-import CardVSenhasPC from "./assets/CardVSenhasCell";
-import CardUSenhasPC from "./assets/CardUSenhasCell";
-import CardNSenhasPC from "./assets/CardNSenhasCell";
-import SpotlightAddPC from "./assets/SpotlightAddCell";
+import CardASenhasPC from "./assets/CardASenhasPc";
+import CardVSenhasPC from "./assets/CardVSenhasPc";
+import CardUSenhasPC from "./assets/CardUSenhasPc";
+import CardNSenhasPC from "./assets/CardNSenhasPc";
+import SpotlightAddPC from "./assets/SpotylightAddPc";
 
 interface DisplayPcProps {
   refreshprops: boolean;
